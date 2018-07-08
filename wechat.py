@@ -26,9 +26,12 @@ def _check_hash(data):
     :param data: 接收到的数据
     :return: True or False，是否通过验证
     '''
-    signature=data.signature  #加密签名
-    timestamp=data.timestamp  #时间戳
-    nonce=data.nonce          #随机数
+    try:
+        signature=data.signature  #加密签名
+        timestamp=data.timestamp  #时间戳
+        nonce=data.nonce          #随机数
+    except:
+        return False
     #字典序排序
     list=[token,timestamp,nonce]
     list.sort()   #拼接成一个字符串进行sha1加密,加密后与signature进行对比
