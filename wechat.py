@@ -80,7 +80,7 @@ class WeixinInterface:
         if _check_hash(data):
             return data.echostr #微信发来的随机字符串,若验证通过,则返回echostr
         else:
-            return 'Not supported'
+            return 'Not supported\n'
 
     def POST(self): #post,向指定的资源提交数据
         str_xml = web.data() #获得post来的数据
